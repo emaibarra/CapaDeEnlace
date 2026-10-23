@@ -5,8 +5,8 @@ import java.util.Random;
 // --- 1. ESTRUCTURAS DE DATOS Y ENMARCADO ---
 class Marco {
     String flagLimite = "01111110"; // Límite del marco, marcamos el inicio y fin del marco segun el protocolo (HDLC)
-    String tipo;                    // "DATOS" o "ACK", dice si es un acknolage y una cadena del mensaje
-    int secuencia;
+    String tipo;                    // "DATOS" o "ACK", dice si es un acknolage
+    int secuencia; //0 o 1
     String datos; //payload
     int checksum;
 
@@ -25,7 +25,7 @@ class Marco {
         return suma % 256;
     }
 
-    public Marco copiar() { //copia la trama en el buffer
+    public Marco copiar() { //copia la trama en el buffer sin afectar el original
         Marco copia = new Marco(this.tipo, this.secuencia, this.datos);
         copia.checksum = this.checksum;
         return copia;
@@ -35,6 +35,7 @@ class Marco {
 // --- 2. LÓGICA DEL RECEPTOR ---
 class Receptor {
     int secuenciaEsperada = 0; //espera q el primero empiece en 0
+    StringBuilder mensajeReensamblado = new StringBuilder(); // aca pegamos el texto
 
     public Marco recibirMarco(Marco marco) { //revisa errores, vuelve a calcular el checksum y lo compara con el que se hizo al principio
         if (marco.calcularChecksum(marco.datos) != marco.checksum) {
@@ -49,13 +50,23 @@ class Receptor {
 
         System.out.println("   [Receptor] Marco " + marco.secuencia + " verificado OK. Datos entregados a Capa de Red: '" + marco.datos + "'");
 
+        // si el marco paso todos los controles de seguridad, pegamos el texto a nuestra frase final
+        mensajeReensamblado.append(marco.datos);
+
         Marco ack = new Marco("ACK", secuenciaEsperada, "");
         secuenciaEsperada = 1 - secuenciaEsperada; //cambia la secuencia esperada
         return ack;
     }
+
+    //funcion para mostrar el resultado final
+    public void mostrarMensajeFinal() {
+        System.out.println("\n=======================================================");
+        System.out.println(" [RECEPTOR] MENSAJE FINAL: '" + mensajeReensamblado.toString() + "'");
+        System.out.println("=======================================================\n");
+    }
 }
 
-// --- 3. SIMULADOR DEL MEDIO DE TRANSMISIÓN EN BRUTO ---
+// SIMULADOR DEL MEDIO DE TRANSMISIÓN---
 class MedioFisico {
     Receptor receptor;
     double probPerdida;
@@ -114,7 +125,7 @@ class MedioFisico {
     }
 }
 
-// --- 4. LÓGICA DEL TRANSMISOR ---
+//LOGICA DEL TRANSMISOR
 class Transmisor {
     MedioFisico medio;
     int secuenciaActual = 0;
@@ -168,5 +179,8 @@ public class Main {
         transmisorOrigen.transferenciaDesdeCapaRed(datosParaEnviar);
 
         System.out.println("--- TRANSFERENCIA DE LA CAPA DE RED COMPLETADA SATISFACTORIAMENTE ---");
+
+        //Le decimos al receptor que imprima el texto
+        receptorDestino.mostrarMensajeFinal();
     }
 }
