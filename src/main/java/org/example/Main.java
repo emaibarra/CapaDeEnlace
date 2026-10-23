@@ -2,9 +2,9 @@ package org.example;
 
 import java.util.Random;
 
-// --- 1. ESTRUCTURAS DE DATOS Y ENMARCADO ---
+//ESTRUCTURAS DE DATOS Y ENMARCADO
 class Marco {
-    String flagLimite = "01111110"; // Límite del marco, marcamos el inicio y fin del marco segun el protocolo (HDLC)
+    String flagLimite = "01111110"; // Limite del marco, marcamos el inicio y fin del marco segun el protocolo (HDLC)
     String tipo;                    // "DATOS" o "ACK", dice si es un acknolage
     int secuencia; //0 o 1
     String datos; //payload
@@ -32,7 +32,7 @@ class Marco {
     }
 }
 
-// --- 2. LÓGICA DEL RECEPTOR ---
+//LOGICA DEL RECEPTOR
 class Receptor {
     int secuenciaEsperada = 0; //espera q el primero empiece en 0
     StringBuilder mensajeReensamblado = new StringBuilder(); // aca pegamos el texto
@@ -66,7 +66,7 @@ class Receptor {
     }
 }
 
-// SIMULADOR DEL MEDIO DE TRANSMISIÓN---
+// SIMULADOR DEL MEDIO DE TRANSMISIÓN
 class MedioFisico {
     Receptor receptor;
     double probPerdida;
@@ -166,7 +166,7 @@ class Transmisor {
     }
 }
 
-// --- 5. EJECUCIÓN PRINCIPAL ---
+// EJECUCIÓN PRINCIPAL
 public class Main {
     public static void main(String[] args) {
         Receptor receptorDestino = new Receptor();
