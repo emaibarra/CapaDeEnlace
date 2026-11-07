@@ -57,7 +57,7 @@ class ManejadorCliente implements Runnable {
             Thread.sleep(500);
 
             String fechaActual = new Date().toString();
-            String mensaje = "¡Hola Cliente! Eres la conexión número: " + numeroConexion +
+            String mensaje = "Hola Cliente! Eres la conexion numero: " + numeroConexion +
                     ". Hora: " + fechaActual +
                     " [Atendido por: " + Thread.currentThread().getName() + "]";
 

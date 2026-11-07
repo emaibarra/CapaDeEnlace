@@ -1,0 +1,24 @@
+SERVIDOR: Bienvenido. Ingrese su nombre de usuario:
+SERVIDOR: Conectado con éxito al canal 'general'.
+Comandos disponibles: /privado <usr> <msg>, /canal <nombre>, /perfil <estado>, /usuarios, /salir
+SERVIDOR: Bienvenido. Ingrese su nombre de usuario:
+SERVIDOR: Conectado con éxito al canal 'general'.
+Comandos disponibles: /privado <usr> <msg>, /canal <nombre>, /perfil <estado>, /usuarios, /salir
+SERVIDOR: Bienvenido. Ingrese su nombre de usuario:
+SERVIDOR: Conectado con éxito al canal 'general'.
+Comandos disponibles: /privado <usr> <msg>, /canal <nombre>, /perfil <estado>, /usuarios, /salir
+[PRIVADO de Ema]: Hola Caro ♥
+[PRIVADO a carolina]: Hola Caro ♥
+[PRIVADO a Ema]: Hola!!
+[PRIVADO de carolina]: Hola!!
+SERVIDOR: Perfil/Estado actualizado a: 'Luciiiaaaa!!'
+--- USUARIOS CONECTADOS ---
+- carolina (Estado: ¡Hola! Estoy usando el Chat en Java.)
+- Ema (Estado: Luciiiaaaa!!)
+
+SERVIDOR: Perfil/Estado actualizado a: 'Music'
+--- USUARIOS CONECTADOS ---
+- carolina (Estado: Music)
+- Ema (Estado: Luciiiaaaa!!)
+
+SERVIDOR: Perfil/Estado actualizado a: 'Chikistrikis'

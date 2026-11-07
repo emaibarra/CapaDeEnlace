@@ -1,0 +1,13 @@
+[2026-11-07T09:49:26.214127700] [LOG]: Servidor de Chat iniciado en el puerto 12345
+[2026-11-07T09:49:49.498056200] [LOG]: Usuario 'Carolina' se ha conectado desde /127.0.0.1
+[2026-11-07T09:55:55.466945400] [LOG]: Servidor de Chat iniciado en el puerto 12345
+[2026-11-07T09:56:16.880690700] [LOG]: Usuario 'carolina' se ha conectado desde /127.0.0.1
+[2026-11-07T09:56:38.569683300] [LOG]: Usuario 'Ema' se ha conectado desde /127.0.0.1
+[2026-11-07T09:57:26.154659300] [LOG]: Mensaje privado enviado de Ema a carolina
+[2026-11-07T10:02:01.293694800] [LOG]: Mensaje privado enviado de carolina a Ema
+[2026-11-07T10:06:32.561362300] [LOG]: Usuario 'carolina' se ha desconectado.
+[2026-11-07T10:06:32.564360100] [LOG]: Conexión perdida con usuario: carolina
+[2026-11-07T10:06:32.565379900] [LOG]: Usuario 'carolina' se ha desconectado.
+[2026-11-07T10:06:43.950198900] [LOG]: Usuario 'Ema' se ha desconectado.
+[2026-11-07T10:06:43.952194700] [LOG]: Conexión perdida con usuario: Ema
+[2026-11-07T10:06:43.953196] [LOG]: Usuario 'Ema' se ha desconectado.
